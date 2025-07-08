@@ -74,7 +74,9 @@ O meu arquivo [.env](./.env) eu comentei ele no [.gitignore](./.gitignore) para 
 
 Link para **Download do Composer**: https://getcomposer.org/
 
-Após certificar-se de ter o Composer, execute o seguinte comando no terminal na cadama da raiz do projeto: **composer install**
+Após certificar-se de ter o Composer, execute o seguinte comando no terminal na cadama da raiz do projeto: 
+
+    composer install
 
 Isso resultará na pasta **vendor/** com as dependências necessárias.
 
@@ -84,12 +86,12 @@ Isso resultará na pasta **vendor/** com as dependências necessárias.
 
     ![img](./Docs/Prints/RodandoContainerDocker.png)
 
-    **docker compose up -d**
+        docker compose up -d
 ---
 
 2. Para acessar o console do MySQL e fazer alguma query e verificar as tabelas, basta executar esse comando abaixo:
 
-    **docker compose exec db mysql -u root -p**
+        docker compose exec db mysql -u root -p
 
     Após executar basta usar a senha cadastrada no ambiente e fazer a query
 
@@ -111,7 +113,7 @@ Após encontrar basta editar e descomentar a linha que possui **;extension=pdo_m
 
 Basta acessar a pasta [public/](./public/) usando o comando **cd public** na raiz no terminal e executar o PHP localmente com o comando:
 
-**php -S localhost:8080**
+    php -S localhost:8080
 
 **Lembrando que esse comando deve ser executado dentro da pasta public, que é onde está o meu index.php**
 
