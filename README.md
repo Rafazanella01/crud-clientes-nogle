@@ -1,7 +1,7 @@
 # Desafio Prático Nogle
 
 ## Resumo:
-O desafio proposto na reunião com o Caio e Lucas foi o seguinte: Desenvolver um CRUD (Create, Read, Update e Delete) de uma lista de clientes em uma linguagem da minha escolha e em apenas uma tela.
+O desafio proposto na reunião com Caio e Lucas consistia em desenvolver um CRUD (Create, Read, Update e Delete) de uma lista de clientes, utilizando a linguagem de minha escolha e com todas as funcionalidades concentradas em uma única tela.
 
 ## Requisitos Minimos:
 
