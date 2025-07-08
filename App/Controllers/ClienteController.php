@@ -81,6 +81,12 @@ class ClienteController{
             $telefone = preg_replace('/\D/', '', $_POST['telefone'] ?? '');
             $cep = preg_replace('/\D/', '', $_POST['cep'] ?? '');
 
+            if ($this->dao->existeCpf($cpf, $id)) {
+                $msg = urlencode('CPF já está cadastrado para outro cliente');
+                header("Location: /?edicao=erro&msg=$msg");
+                exit;
+            }
+            
             $dados = [
                 'id' => $id,
                 'nome' => trim($nomeLimpo),

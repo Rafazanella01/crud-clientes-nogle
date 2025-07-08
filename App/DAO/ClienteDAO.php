@@ -107,21 +107,31 @@ class ClienteDAO
         ]);
     }
 
-    // Verifica se já existe o cpf passado no parametro no DB
-    public function existeCpf(string $cpf): bool
+    //Verifica se já existe o cpf passado no parametro no DB
+    public function existeCpf(string $cpf, ?int $ignorarId = null): bool
     {
         $sql = "SELECT COUNT(*) FROM clientes WHERE cpf = :cpf";
+
+        if ($ignorarId !== null) {
+            $sql .= " AND id != :id";
+        }
+
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute([':cpf' => $cpf]);
-        $count = $stmt->fetchColumn();
-        return $count > 0;
+        $stmt->bindValue(':cpf', $cpf);
+        
+        if ($ignorarId !== null) {
+            $stmt->bindValue(':id', $ignorarId, \PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
     }
 
     // Inativa por Id
     public function inativar(int $id): bool
     {
-    $sql = "UPDATE clientes SET ativo = 0 WHERE id = :id";
-    $stmt = $this->conn->prepare($sql);
-    return $stmt->execute([':id' => $id]);
+        $sql = "UPDATE clientes SET ativo = 0 WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        return $stmt->execute([':id' => $id]);
     }
 }
